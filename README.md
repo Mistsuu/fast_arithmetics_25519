@@ -7,5 +7,4 @@ The instruction set written for this library is from Intel x64, which uses regis
 ## Run code
 - You can run `make main` to compile the main program from source.
 - Or, `make run` to compile and run right away.
-- `make dbg` to compile and debug code. I use `gdb-pwndbg` as my alias to `pwndbg` when debugging, which may not be true on other machines. You could run:
-- `make dbg-gdb` to debug the program with classical `gdb`.
+- `make gdb` to debug the program with `gdb` *(if there isn't `gdb` on your machine, install it first :))*.
