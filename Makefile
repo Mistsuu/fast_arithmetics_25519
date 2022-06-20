@@ -25,7 +25,7 @@ main: $(FULLOBJS)
 
 
 # For commands
-.PHONY: clean run dbg
+.PHONY: clean run dbg dbg-gdb
 clean:
 	rm -f $(OBJECT_DIR)/*.o ./main
 
@@ -34,3 +34,6 @@ run: main
 
 dbg: main
 	gdb-pwndbg ./main
+
+dbg-gdb: main
+	gdb ./main
