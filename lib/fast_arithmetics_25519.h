@@ -11,11 +11,22 @@ typedef struct Int25519
     __UINT64_TYPE__ limbs[5];
 } Int25519;
 
+/*
+    Define the number 2^255-19 in radix-2^51 form.
+*/
+#define P_LIMB_0 0x7ffffffffffed
+#define P_LIMB_1 0x7ffffffffffff
+#define P_LIMB_2 0x7ffffffffffff
+#define P_LIMB_3 0x7ffffffffffff
+#define P_LIMB_4 0x7ffffffffffff
+
 // ============================ DEFINE FUNCS =============================
 void mul25519(Int25519 *out, Int25519 *x, Int25519 *y);
 void sqr25519(Int25519 *out, Int25519 *x);
 void inv25519(Int25519 *out, Int25519 *x);
 void sqrt25519(Int25519 *out, Int25519 *x);
 void pow25519(Int25519 *out, Int25519 *x, Int25519 *y);
+void add25519(Int25519 *out, Int25519 *x, Int25519 *y);
+void sub25519(Int25519 *out, Int25519 *x, Int25519 *y);
 
 #endif

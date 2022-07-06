@@ -20,8 +20,5 @@ int main(int argc, char **argv)
     num2.limbs[3] = 0x761ea16c8a484;
     num2.limbs[4] = 0x55c987ed5d82d;
 
-    for (int _ = 0; _ < 1000000; ++_)
-        pow25519(&result, &num1, &num2);
-
     return 0;
 }
