@@ -5,7 +5,7 @@ SOURCE_DIR  = src
 
 # Compilers options
 CC          = gcc
-CFLAGS      = -I$(LIBRARY_DIR) -O0 -ggdb -fsanitize=address
+CFLAGS      = -I$(LIBRARY_DIR) -O0 -ggdb
 LIBS		= 
 
 # Requirements and stuffs
