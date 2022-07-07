@@ -1,4 +1,3 @@
-
 #include "fast_arithmetics_25519.h"
 
 /*

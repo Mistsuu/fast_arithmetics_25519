@@ -14,11 +14,11 @@ typedef struct Int25519
 /*
     Define the number 2^255-19 in radix-2^51 form.
 */
-#define P_LIMB_0 0x7ffffffffffed
-#define P_LIMB_1 0x7ffffffffffff
-#define P_LIMB_2 0x7ffffffffffff
-#define P_LIMB_3 0x7ffffffffffff
-#define P_LIMB_4 0x7ffffffffffff
+#define P25519_LIMB_0 0x7ffffffffffed
+#define P25519_LIMB_1 0x7ffffffffffff
+#define P25519_LIMB_2 0x7ffffffffffff
+#define P25519_LIMB_3 0x7ffffffffffff
+#define P25519_LIMB_4 0x7ffffffffffff
 
 // ============================ DEFINE FUNCS =============================
 void mul25519(Int25519 *out, Int25519 *x, Int25519 *y);

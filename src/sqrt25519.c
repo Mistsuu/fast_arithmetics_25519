@@ -1,4 +1,3 @@
-#include "local_asm.h"
 #include "fast_arithmetics_25519.h"
 
 /*

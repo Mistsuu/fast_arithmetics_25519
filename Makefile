@@ -9,8 +9,8 @@ CFLAGS      = -I$(LIBRARY_DIR) -O3 -ggdb
 LIBS		= 
 
 # Requirements and stuffs
-OBJS        = main.o mul25519.o sqr25519.o inv25519.o sqrt25519.o pow25519.o add25519.o sub25519.o
-DEPS        = fast_arithmetics_25519.h local_asm.h
+OBJS        = main.o mul25519.o sqr25519.o inv25519.o sqrt25519.o pow25519.o add25519.o sub25519.o curve25519.o
+DEPS        = fast_arithmetics_25519.h local_asm.h curve25519.h
 FULLDEPS    = $(patsubst %,$(LIBRARY_DIR)/%, $(DEPS))
 FULLOBJS    = $(patsubst %,$(OBJECT_DIR)/%,  $(OBJS))
 
