@@ -15,7 +15,17 @@ int main(int argc, char **argv)
     PointMo25519 R;
 
     uDBL(&P, &R);
+    printf("0x%lx\n", R.u.limbs[0]);
+    printf("0x%lx\n", R.u.limbs[1]);
+    printf("0x%lx\n", R.u.limbs[2]);
+    printf("0x%lx\n", R.u.limbs[3]);
+    printf("0x%lx\n", R.u.limbs[4]);
 
+    printf("0x%lx\n", R.w.limbs[0]);
+    printf("0x%lx\n", R.w.limbs[1]);
+    printf("0x%lx\n", R.w.limbs[2]);
+    printf("0x%lx\n", R.w.limbs[3]);
+    printf("0x%lx\n", R.w.limbs[4]);
 
     return 0;
 }

@@ -9,10 +9,8 @@ CFLAGS      = -I$(LIBRARY_DIR) -O3 -ggdb
 LIBS		= 
 
 # Requirements and stuffs
-OBJS        = main.o mul25519.o sqr25519.o inv25519.o sqrt25519.o pow25519.o add25519.o sub25519.o curve25519.o
-DEPS        = fast_arithmetics_25519.h local_asm.h curve25519.h
-FULLDEPS    = $(patsubst %,$(LIBRARY_DIR)/%, $(DEPS))
-FULLOBJS    = $(patsubst %,$(OBJECT_DIR)/%,  $(OBJS))
+FULLDEPS := $(shell find $(LIBRARY_DIR) -name '*.h')
+FULLOBJS := $(shell find $(SOURCE_DIR) -name '*.c' | sed -e "s/^$(SOURCE_DIR)/$(OBJECT_DIR)/" | sed -e "s/\\.c$$/.o/")
 
 $(OBJECT_DIR):
 	mkdir -p $(OBJECT_DIR)
@@ -27,7 +25,7 @@ main: $(FULLOBJS)
 # For commands
 .PHONY: clean run dbg gdb
 clean:
-	rm -f $(OBJECT_DIR)/*.o ./main
+	rm -f $(SOURCE_DIR)/*.o $(OBJECT_DIR)/*.o ./main
 
 run: main
 	./main

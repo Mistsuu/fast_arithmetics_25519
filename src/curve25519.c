@@ -133,24 +133,7 @@ void uDBL(PointMo25519* P, PointMo25519* R)
     sub25519(&V2, &P->u, &P->w);
     sqr25519(&V2, &V2);
     mul25519(&R->u, &V1, &V2);
-
-    printf("0x%lx\n", V1.limbs[0]);
-    printf("0x%lx\n", V1.limbs[1]);
-    printf("0x%lx\n", V1.limbs[2]);
-    printf("0x%lx\n", V1.limbs[3]);
-    printf("0x%lx\n", V1.limbs[4]);
-    printf("0x%lx\n", V2.limbs[0]);
-    printf("0x%lx\n", V2.limbs[1]);
-    printf("0x%lx\n", V2.limbs[2]);
-    printf("0x%lx\n", V2.limbs[3]);
-    printf("0x%lx\n", V2.limbs[4]);
     sub25519(&V1, &V1, &V2);
-    printf("0x%lx\n", V1.limbs[0]);
-    printf("0x%lx\n", V1.limbs[1]);
-    printf("0x%lx\n", V1.limbs[2]);
-    printf("0x%lx\n", V1.limbs[3]);
-    printf("0x%lx\n", V1.limbs[4]);
-
     mul25519(&V3, &A2, &V1);
     add25519(&V3, &V3, &V2);
     mul25519(&R->w, &V1, &V3);
