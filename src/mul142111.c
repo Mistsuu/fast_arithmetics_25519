@@ -2,7 +2,7 @@
 #include "fast_arithmetics_142111.h"
 
 /*
-    Define multiplication on finite field of size 2^255-19.
+    Define multiplication on finite field of size 2^142-111.
 */
 
 // ============================ DEFINE REGISTERS AND SUB-FUNCTIONS ============================
@@ -60,9 +60,9 @@
     ADD(HREG, RLMUL)
 
 
-// ============================ MULTIPLY IN GF(2^255-19) ============================
+// ============================ MULTIPLY IN GF(2^142-111) ============================
 
-void mul25519(Int142111 *out, Int142111 *x, Int142111 *y)
+void mul142111(Int142111 *out, Int142111 *x, Int142111 *y)
 {
     __asm__ __volatile__(
         // "nop;"
