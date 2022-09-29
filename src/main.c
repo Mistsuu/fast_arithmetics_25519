@@ -138,7 +138,15 @@ void cleanup()
 
 void sqrMatrix()
 {
-
+    Int142111 tmp;
+    for (int r = 0; r < NROWS; ++r)
+    for (int c = 0; c < NCOLS; ++c)
+    {
+        for (int i = 0; i < NCOLS; ++i) {
+            mul142111(&tmp, &M1(r, i), &M1(i, c));
+            add142111(&M2(r, c), &M2(r, c), &tmp);
+        }
+    }
 }
 
 // ============================ MAIN ============================
@@ -147,7 +155,7 @@ int main(int argc, char **argv)
     init();
     // --------------- logic here --------------------
 
-    prn142111(&M1(9999, 0));
+    sqrMatrix();
 
     // -----------------------------------------------
     cleanup();
