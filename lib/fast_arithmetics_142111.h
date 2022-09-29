@@ -14,6 +14,7 @@ typedef struct Int142111
 // ============================ DEFINE FUNCS =============================
 void mul142111(Int142111 *out, Int142111 *x, Int142111 *y);
 void add142111(Int142111 *out, Int142111 *x, Int142111 *y);
-void rand142111(Int142111 *out);
+void rnd142111(Int142111 *out);
+void prn142111(Int142111 *in);
 
 #endif

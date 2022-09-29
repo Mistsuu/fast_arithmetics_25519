@@ -7,18 +7,22 @@
 */
 
 // ============================ RANDOM GF(2^142-111) ============================
-void rand142111(Int142111 *out)
+void rnd142111(Int142111 *out)
 {
     if (!out)
         return;
 
     // Read random values from file
-    FILE* fptr = fopen("/dev/urandom", "r");
-    fread(out, sizeof(Int142111), 1, fptr);
+    FILE* fptr;
+    int   bytesRead;
+    fptr      = fopen("/dev/urandom", "r");
+    bytesRead = fread(&out->limbs[0], sizeof(__UINT64_TYPE__), 1, fptr);
+    bytesRead = fread(&out->limbs[1], sizeof(__UINT64_TYPE__), 1, fptr);
+    bytesRead = fread(&out->limbs[2], sizeof(__UINT64_TYPE__), 1, fptr);
     fclose(fptr);
 
     // Chop down output
     out->limbs[0] &= 0xffffffffffff;
     out->limbs[1] &= 0xffffffffffff;
-    out->limbs[2] &= 0xffffffffffff;
+    out->limbs[2] &= 0x3fffffffffff;
 }
