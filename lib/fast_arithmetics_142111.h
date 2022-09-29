@@ -22,11 +22,6 @@ typedef struct Int25519
 
 // ============================ DEFINE FUNCS =============================
 void mul25519(Int25519 *out, Int25519 *x, Int25519 *y);
-void sqr25519(Int25519 *out, Int25519 *x);
-void inv25519(Int25519 *out, Int25519 *x);
-void sqrt25519(Int25519 *out, Int25519 *x);
-void pow25519(Int25519 *out, Int25519 *x, Int25519 *y);
 void add25519(Int25519 *out, Int25519 *x, Int25519 *y);
-void sub25519(Int25519 *out, Int25519 *x, Int25519 *y);
 
 #endif

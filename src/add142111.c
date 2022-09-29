@@ -1,5 +1,5 @@
 #include "local_asm.h"
-#include "fast_arithmetics_25519.h"
+#include "fast_arithmetics_142111.h"
 
 /*
     Define ADDITION on finite field of size 2^255-19.
