@@ -1,14 +1,17 @@
-def splitradix248(x):
+def splitradix248(x, debug=False):
     arr = []
     for _ in range(3):
         arr.append(x & 0xffffffffffff)
         x >>= 48
 
-    print("[ i ] Radix representation: [")
-    for val in arr:
-        print(f"   {hex(val)}")
-    print("]")
+    if debug:
+        print("[ i ] Radix representation: [")
+        for val in arr:
+            print(f"   {hex(val)}")
+        print("]")
+
     return arr
 
-number = int(input('[ i ] Enter a hex number: '), 16)
-splitradix248(number)
+if __name__ == '__main__':
+    number = int(input('[ i ] Enter a hex number: '), 16)
+    splitradix248(number, debug=True)

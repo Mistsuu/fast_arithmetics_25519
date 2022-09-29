@@ -10,7 +10,7 @@
 void prn142111(Int142111 *in)
 {
     if (in)
-        printf("0x%lx%lx%lx\n", 
+        printf("0x%lx%012lx%012lx\n", 
                     in->limbs[2],
                     in->limbs[1],
                     in->limbs[0]
