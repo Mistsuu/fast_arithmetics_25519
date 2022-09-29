@@ -14,4 +14,4 @@ if __name__ == '__main__':
     arr = []
     for _ in range(3):
         arr.append(int(input(), 16))
-        getfromradix248(arr, debug=True)
+    getfromradix248(arr, debug=True)
