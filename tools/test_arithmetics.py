@@ -1,5 +1,6 @@
 import os
 from pwn import process, context
+from tqdm import trange
 
 # Remove log from pwntools
 context.log_level = 'error'
@@ -14,11 +15,16 @@ def testMultiplication():
     
     x = int(io.readline().decode().strip(), 16)
     y = int(io.readline().decode().strip(), 16)
+    r = int(io.readline().decode().strip(), 16)
+    w = int(io.readline().decode().strip(), 16)
     z = int(io.readline().decode().strip(), 16)
     
     io.close()
     
-    print(f'{hex(x)[2:].zfill(36)} * {hex(y)[2:].zfill(36)} = {hex(z)[2:].zfill(36)} => {x * y % p == z}')
+    return (x + y + r + 5*w)**2 % p == z
 
-for _ in range(20):
-    testMultiplication()
+count = 0
+total = 2000
+for _ in trange(total):
+    count += int(testMultiplication())
+print(f"Accuracy: {count}/{total} => {count/total*100}%")
