@@ -21,4 +21,4 @@ def splitradix247(x):
     print("]")
     return arr
 
-getfromradix247(splitradix247(randrange(0, 2**255-19)))
+getfromradix247(splitradix247(randrange(0, 2**142-111)))

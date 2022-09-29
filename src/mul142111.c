@@ -64,7 +64,7 @@
 
 // ============================ MULTIPLY IN GF(2^255-19) ============================
 
-void mul25519(Int25519 *out, Int25519 *x, Int25519 *y)
+void mul25519(Int142111 *out, Int142111 *x, Int142111 *y)
 {
     __asm__ __volatile__(
         // "nop;"

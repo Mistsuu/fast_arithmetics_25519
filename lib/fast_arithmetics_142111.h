@@ -6,10 +6,10 @@
 /*
     Define a 255-bit integer holder, using radix-2^51 representation.
 */
-typedef struct Int25519
+typedef struct Int142111
 {
     __UINT64_TYPE__ limbs[5];
-} Int25519;
+} Int142111;
 
 /*
     Define the number 2^255-19 in radix-2^51 form.
@@ -21,7 +21,7 @@ typedef struct Int25519
 #define P25519_LIMB_4 0x7ffffffffffff
 
 // ============================ DEFINE FUNCS =============================
-void mul25519(Int25519 *out, Int25519 *x, Int25519 *y);
-void add25519(Int25519 *out, Int25519 *x, Int25519 *y);
+void mul25519(Int142111 *out, Int142111 *x, Int142111 *y);
+void add25519(Int142111 *out, Int142111 *x, Int142111 *y);
 
 #endif
