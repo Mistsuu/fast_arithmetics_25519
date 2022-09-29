@@ -13,7 +13,6 @@
 #define R2 "%r10"
 
 // Registers that store constants
-#define R_0x7fffffffffff "%r11" // Stores 0x7fffffffffff
 #define R_0xffffffffffff "%r12" // Stores 0xffffffffffff
 
 // Operands, mini-functions you might call it
@@ -21,8 +20,8 @@
     MOVP(RLMUL, "1", offX)                 \
     MOVP(RHMUL, "2", offY)                 \
     MUL(RHMUL)                             \
-    SHLD(RHMUL, RLMUL, "17")               \
-    AND(RLMUL, R_0x7fffffffffff)           \
+    SHLD(RHMUL, RLMUL, "16")               \
+    AND(RLMUL, R_0xffffffffffff)           \
     ADD(HREG, RHMUL)                       \
     ADD(LREG, RLMUL)
 
@@ -34,30 +33,30 @@
     AND(RLMUL, R_0xffffffffffff)           \
     ADD(LREG, RLMUL)                       \
     MOV(RLMUL, RHMUL)                      \
-    IMUL(RLMUL, RLMUL, "111")              \
+    IMUL(RLMUL, RLMUL, "444")              \
     ADD(HREG, RLMUL)
 
 #define MUL_LIMBCC(LREG, HREG, offX, offY) \
     MOVP(RLMUL, "1", offX)                 \
     MOVP(RHMUL, "2", offY)                 \
-    IMUL(RLMUL, RLMUL, "111")              \
+    IMUL(RLMUL, RLMUL, "444")              \
     MUL(RHMUL)                             \
     SHLD(RHMUL, RLMUL, "16")               \
-    AND(RLMUL, R_0x7fffffffffff)           \
+    AND(RLMUL, R_0xffffffffffff)           \
     ADD(HREG, RHMUL)                       \
     ADD(LREG, RLMUL)
 
 #define CARRY(LREG, HREG)        \
     MOV(RLMUL, LREG)             \
-    AND(LREG, R_0x7fffffffffff)  \
-    SAR(RLMUL, "47")             \
+    AND(LREG, R_0xffffffffffff)  \
+    SAR(RLMUL, "48")             \
     ADD(HREG, RLMUL)
 
-#define CARRY111(LREG, HREG)     \
+#define CARRY444(LREG, HREG)     \
     MOV(RLMUL, LREG)             \
     AND(LREG, R_0xffffffffffff)  \
     SAR(RLMUL, "48")             \
-    IMUL(RLMUL, RLMUL, "111")    \
+    IMUL(RLMUL, RLMUL, "444")    \
     ADD(HREG, RLMUL)
 
 
@@ -73,9 +72,8 @@ void mul25519(Int142111 *out, Int142111 *x, Int142111 *y)
             XOR(R1, R1)
             XOR(R2, R2)
 
-            // Set the register "RMSK (user-defined)" to 0x7fffffffffff, 0xffffffffffff
+            // Set the register "RMSK (user-defined)" to 0xffffffffffff
             // to save space
-            IMOV(R_0x7fffffffffff, "0x7fffffffffff")
             IMOV(R_0xffffffffffff, "0xffffffffffff")
 
             // Good ol' multiply by assembly...
@@ -92,13 +90,13 @@ void mul25519(Int142111 *out, Int142111 *x, Int142111 *y)
             MUL_LIMBCC(R1, R2, "16", "16") // x2*y2
 
             // Performs carry
-            CARRY111(R2, R0)
+            CARRY444(R2, R0)
             CARRY(R0, R1)
             CARRY(R1, R2)
-            CARRY111(R2, R0)
+            CARRY444(R2, R0)
             CARRY(R0, R1)
             CARRY(R1, R2)
-            CARRY111(R2, R0)
+            CARRY444(R2, R0)
             CARRY(R0, R1)
             CARRY(R1, R2)
 
@@ -112,6 +110,6 @@ void mul25519(Int142111 *out, Int142111 *x, Int142111 *y)
             : "r"(out->limbs), "r"(x->limbs), "r"(y->limbs)
             : R0, R1, R2,
               RLMUL, RHMUL,
-              R_0x7fffffffffff, R_0xffffffffffff
+              R_0xffffffffffff
     );
 }
