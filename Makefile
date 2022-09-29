@@ -6,7 +6,7 @@ SOURCE_DIR  = src
 # Compilers options
 CC          = gcc
 CFLAGS      = -I$(LIBRARY_DIR) -O3 -ggdb
-LIBS		= 
+LIBS        = 
 
 # Requirements and stuffs
 FULLDEPS := $(shell find $(LIBRARY_DIR) -name '*.h')
