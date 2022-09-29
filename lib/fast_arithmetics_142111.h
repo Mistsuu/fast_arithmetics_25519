@@ -16,5 +16,6 @@ void mul142111(Int142111 *out, Int142111 *x, Int142111 *y);
 void add142111(Int142111 *out, Int142111 *x, Int142111 *y);
 void rnd142111(Int142111 *out);
 void prn142111(Int142111 *in);
+void set142111(Int142111 *out, const char* in_base_16);
 
 #endif
