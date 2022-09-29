@@ -1,8 +1,9 @@
-def splitradix251(x):
+def splitradix247(x):
     arr = []
-    while x:
-        arr.append(x & 0x7ffffffffffff)
-        x >>= 51
+    for _ in range(2):
+        arr.append(x & 0x7fffffffffff)
+        x >>= 47
+    arr.append(x & 0xffffffffffff)
 
     print("[ i ] Radix representation: [")
     for val in arr:
@@ -11,4 +12,4 @@ def splitradix251(x):
     return arr
 
 number = int(input('[ i ] Enter a hex number: '), 16)
-splitradix251(number)
+splitradix247(number)
